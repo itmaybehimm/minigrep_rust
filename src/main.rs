@@ -5,7 +5,7 @@ fn main() {
 
     // dbg!(&args);
 
-    let config: Config = Config::new(&args);
+    let config = Config::new(&args);
 
     // Other way
     // let contents: String = match fs::read_to_string(file_path) {
@@ -25,10 +25,14 @@ struct Config {
 }
 
 impl Config {
-    fn new(args: &[String]) -> Config {
-        Config {
+    fn new(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
+
+        Ok(Config {
             query: args[1].clone(),
             file_path: args[2].clone(),
-        }
+        })
     }
 }
