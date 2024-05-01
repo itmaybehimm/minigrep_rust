@@ -26,7 +26,7 @@ MiniGrep supports the following configuration options:
 minigrep rust example.txt
 
 # Perform a case-insensitive search for the word "Rust" in the file "example.txt"
-IGNORE_CASE=true minigrep Rust example.txt
+IGNORE_CASE=1 minigrep Rust example.txt
 ```
 
 #### Building and Running
@@ -34,10 +34,11 @@ IGNORE_CASE=true minigrep Rust example.txt
 To build and run MiniGrep, follow these steps:
 
 1. Ensure you have Rust installed on your system.
-2. Clone the repository: `git clone https://github.com/yourusername/minigrep.git`
+2. Clone the repository
 3. Navigate to the project directory: `cd minigrep`
 4. Build the project: `cargo build --release`
 5. Run the executable: `./target/release/minigrep <query> <file_path>`
+6. Or run : `cargo run <query> <file_path>`
 
 #### Testing
 
