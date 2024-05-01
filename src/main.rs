@@ -5,7 +5,7 @@ fn main() {
 
     // dbg!(&args);
 
-    let config: Config = parse_config(&args);
+    let config: Config = Config::new(&args);
 
     // Other way
     // let contents: String = match fs::read_to_string(file_path) {
@@ -31,8 +31,4 @@ impl Config {
             file_path: args[2].clone(),
         }
     }
-}
-
-fn parse_config(args: &[String]) -> Config {
-    Config::new(&args)
 }
