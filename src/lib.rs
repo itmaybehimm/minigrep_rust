@@ -20,6 +20,11 @@ impl Config {
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents: String = fs::read_to_string(config.file_path)?;
+
+    for line in search(&config.query, &contents) {
+        println!("{line}")
+    }
+
     Ok(())
 }
 
@@ -40,10 +45,7 @@ mod tests {
     #[test]
     fn one_result() {
         let query: &str = "duct";
-        let contents: &str = "\
-   Rust:
-   safe, fast, productive.
-   Pick three.";
+        let contents: &str = "Rust:\nsafe, fast, productive.\nPick three.";
         assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
 }
